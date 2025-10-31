@@ -110,17 +110,12 @@ src="https://www.facebook.com/tr?id=968581565050755&ev=PageView&noscript=1"
                 transform: scale(1);
             }
         }
-        /* Correções para rolagem suave */
+        /* Correções básicas */
         html {
               height: 100% !important;
               overflow-y: scroll !important;
               overflow-x: hidden !important;
-              margin: 0 !important;
-              padding: 0 !important;
-              width: 100% !important;
               -webkit-overflow-scrolling: touch !important;
-              -webkit-tap-highlight-color: transparent !important;
-              touch-action: manipulation !important;
         }
         
         body {
@@ -130,27 +125,18 @@ src="https://www.facebook.com/tr?id=968581565050755&ev=PageView&noscript=1"
               overflow-x: hidden !important;
               margin: 0 !important;
               padding: 0 !important;
+        }
+
+        /* Ajustes para o banner */
+        .background-custom-size {
+              background-size: cover !important;
+              background-position: center !important;
+              min-height: 300px !important;
               width: 100% !important;
-              position: relative !important;
-              touch-action: pan-y !important;
-              -webkit-text-size-adjust: 100% !important;
         }
         
-        .container-inner, .view-wrapper {
-              touch-action: pan-y !important;
-              -webkit-overflow-scrolling: touch !important;
-              overflow-y: visible !important;
-        }
-        
-        /* Correções para elementos fixos */
-        .navbar, .pageloader, .infraloader, .app-overlay {
-              position: relative !important;
-              z-index: auto !important;
-        }
-        
-        /* Ajuste para container principal */
+        /* Estrutura básica */
         .container-inner {
-              position: relative !important;
               overflow: visible !important;
               height: auto !important;
         }
@@ -158,8 +144,7 @@ src="https://www.facebook.com/tr?id=968581565050755&ev=PageView&noscript=1"
         /* Ajuste para o vídeo */
         .video-wrapper {
               position: relative !important;
-              z-index: 1 !important;
-              transform: none !important;
+              margin-top: 20px !important;
         }
 		.live-indicator {
 		    	position: relative;
@@ -319,7 +304,7 @@ src="https://www.facebook.com/tr?id=968581565050755&ev=PageView&noscript=1"
             <input type="hidden" id="SilenciarPerfilId" name="SilenciarPerfilId" value="">
             <div class="scroll-x-hidden-mobile-mosaic">
                 <div class="container">
-                    <div class="background-custom-size bg-img-styles justify-content-end media overflow-hidden row" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9), transparent), url('images/bannergab.png');">
+                    <div class="background-custom-size bg-img-styles justify-content-end media overflow-hidden row" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9), transparent), url('images/bannergab.png'); min-height: 300px; background-size: cover; background-position: center;">
                         <div class="align-self-end mb-n3 pb-1 order-last">
                             <ul class="mr-4 row">
                                 <li>
