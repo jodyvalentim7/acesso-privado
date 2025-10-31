@@ -331,7 +331,7 @@ src="https://www.facebook.com/tr?id=968581565050755&ev=PageView&noscript=1"
 
 
 <style>
-/* Centraliza tudo no ecrã */
+/* Centraliza tudo na tela */
 body {
   display: flex;
   justify-content: center;
@@ -341,7 +341,7 @@ body {
   margin: 0;
 }
 
-/* Caixa do vídeo com borda vermelha */
+/* Moldura do vídeo */
 .video-wrapper {
   position: relative;
   display: flex;
@@ -351,12 +351,14 @@ body {
   border-radius: 15px;
   box-shadow: 0 0 25px red;
   padding: 10px;
-  width: fit-content;
   margin: auto;
+  max-width: 420px;
+  width: 100%;
 }
 
-/* Força o player a ficar centralizado dentro da wrapper */
-.video-wrapper vturb-smartplayer {
+/* Ajusta o tamanho do vídeo e força centralização */
+.video-wrapper vturb-smartplayer,
+.video-wrapper iframe {
   display: block;
   margin: 0 auto;
   width: 100%;
@@ -372,11 +374,12 @@ body {
 
 <!-- Script do player -->
 <script type="text/javascript">
-var s=document.createElement("script");
-s.src="https://scripts.converteai.net/1ef2b551-1796-403e-b6a2-bd3b25cec727/players/69051d0321067174bb51da94/v4/player.js";
-s.async=!0;
-document.head.appendChild(s);
+  var s = document.createElement("script");
+  s.src = "https://scripts.converteai.net/1ef2b551-1796-403e-b6a2-bd3b25cec727/players/69051d0321067174bb51da94/v4/player.js";
+  s.async = true;
+  document.head.appendChild(s);
 </script>
+
 
 
         
