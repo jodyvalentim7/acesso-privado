@@ -48,32 +48,25 @@
         <link rel="stylesheet" href="css/video-fixes.css">
         <style>
             html {
-                min-height: 100vh !important;
                 height: 100% !important;
-                overflow: auto !important;
+                width: 100% !important;
+                overflow-y: auto !important;
+                overflow-x: hidden !important;
                 -webkit-overflow-scrolling: touch !important;
-                -ms-overflow-style: -ms-autohiding-scrollbar !important;
                 touch-action: manipulation !important;
-                scroll-behavior: auto !important;
-                overscroll-behavior-y: none !important;
                 -webkit-text-size-adjust: 100% !important;
-                -moz-text-size-adjust: 100% !important;
-                -ms-text-size-adjust: 100% !important;
             }
             
             body {
-                min-height: 100vh !important;
-                height: 100% !important;
-                overflow-y: scroll !important;
+                min-height: 100% !important;
+                width: 100% !important;
+                overflow-y: auto !important;
                 overflow-x: hidden !important;
-                touch-action: pan-y pinch-zoom !important;
-                -webkit-tap-highlight-color: transparent !important;
-                -webkit-touch-callout: none !important;
-                -webkit-user-select: none !important;
-                user-select: none !important;
-                position: relative !important;
                 margin: 0 !important;
                 padding: 0 !important;
+                position: relative !important;
+                touch-action: pan-y !important;
+                -webkit-tap-highlight-color: transparent !important;
             }
 
             #app-teleport, .app-overlay, .pageloader, .infraloader {
@@ -100,23 +93,20 @@
 // Executa imediatamente
 (function() {
     function initScroll() {
-        // Configurações gerais de rolagem
-        document.body.style.height = '100%';
-        document.body.style.overflow = 'scroll';
-        document.documentElement.style.overflow = 'auto';
+        // Configurações básicas
+        document.documentElement.style.height = '100%';
+        document.body.style.minHeight = '100%';
+        document.body.style.overflow = 'auto';
         
-        // Força ativação da rolagem com fallback
-        if ('scrollTo' in window) {
-            window.scrollTo(0, 1);
-            window.scrollTo(0, 0);
+        // Garante que o banner está visível
+        var banner = document.querySelector('.background-custom-size');
+        if (banner) {
+            banner.style.display = 'block';
+            banner.style.visibility = 'visible';
         }
         
-        // Otimizações de touch para Android e iOS
-        document.body.style.touchAction = 'pan-y pinch-zoom';
-        document.documentElement.style.touchAction = 'manipulation';
-        
-        // Força reflow para garantir que as mudanças sejam aplicadas
-        void document.documentElement.offsetHeight;
+        // Habilita rolagem suave
+        document.documentElement.style.scrollBehavior = 'smooth';
     }
 
     // Executa várias vezes para garantir
@@ -185,53 +175,44 @@ src="https://www.facebook.com/tr?id=968581565050755&ev=PageView&noscript=1"
         /* Correções para rolagem suave */
         html {
               height: 100% !important;
-              overflow-y: scroll !important;
-              overflow-x: hidden !important;
+              width: 100% !important;
+              overflow-y: auto !important;
               margin: 0 !important;
               padding: 0 !important;
-              width: 100% !important;
-              -webkit-overflow-scrolling: touch !important;
-              -webkit-tap-highlight-color: transparent !important;
-              touch-action: manipulation !important;
         }
         
         body {
               min-height: 100% !important;
-              height: auto !important;
-              overflow-y: visible !important;
+              width: 100% !important;
+              overflow-y: auto !important;
               overflow-x: hidden !important;
               margin: 0 !important;
               padding: 0 !important;
-              width: 100% !important;
-              position: relative !important;
-              touch-action: pan-y !important;
-              -webkit-text-size-adjust: 100% !important;
+              background: #000 !important;
         }
         
         .container-inner, .view-wrapper {
-              touch-action: pan-y !important;
-              -webkit-overflow-scrolling: touch !important;
-              overflow-y: visible !important;
-        }
-        
-        /* Correções para elementos fixos */
-        .navbar, .pageloader, .infraloader, .app-overlay {
-              position: relative !important;
-              z-index: auto !important;
-        }
-        
-        /* Ajuste para container principal */
-        .container-inner {
-              position: relative !important;
-              overflow: visible !important;
+              width: 100% !important;
               height: auto !important;
+              overflow: visible !important;
+        }
+        
+        /* Ajustes para o banner */
+        .background-custom-size {
+              width: 100% !important;
+              height: 200px !important; /* Altura fixa para o banner */
+              background-size: cover !important;
+              background-position: center !important;
+              position: relative !important;
+              margin: 0 !important;
+              padding: 0 !important;
         }
         
         /* Ajuste para o vídeo */
         .video-wrapper {
               position: relative !important;
               z-index: 1 !important;
-              transform: none !important;
+              margin-top: 20px !important;
         }
 		.live-indicator {
 		    	position: relative;
