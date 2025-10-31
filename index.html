@@ -45,6 +45,7 @@
         <link rel="stylesheet" href="css/profile.css">
         <link rel="stylesheet" href="css/profile.css">
         <link rel="stylesheet" href="css/smooth-scroll.css">
+        <link rel="stylesheet" href="css/video-fixes.css">
         <style>
             html, body {
                 scroll-behavior: smooth !important;
@@ -96,15 +97,38 @@ src="https://www.facebook.com/tr?id=968581565050755&ev=PageView&noscript=1"
                 transform: scale(1);
             }
         }
-        /* Impede que o conteúdo vá para os lados */
+        /* Correções para rolagem suave */
         html, body {
-              overflow-x: hidden; /* Impede scroll horizontal */
-              overflow-y: auto; /* Garante que o scroll vertical funcione */
-              margin: 0;
-              padding: 0;
-              width: 100%;
-              box-sizing: border-box;
-              height: 100%;
+              overflow-x: hidden !important;
+              overflow-y: visible !important;
+              margin: 0 !important;
+              padding: 0 !important;
+              width: 100% !important;
+              box-sizing: border-box !important;
+              min-height: 100vh !important;
+              position: relative !important;
+              -webkit-overflow-scrolling: touch !important;
+              overscroll-behavior-y: auto !important;
+        }
+        
+        /* Correções para elementos fixos */
+        .navbar, .pageloader, .infraloader, .app-overlay {
+              position: relative !important;
+              z-index: auto !important;
+        }
+        
+        /* Ajuste para container principal */
+        .container-inner {
+              position: relative !important;
+              overflow: visible !important;
+              height: auto !important;
+        }
+        
+        /* Ajuste para o vídeo */
+        .video-wrapper {
+              position: relative !important;
+              z-index: 1 !important;
+              transform: none !important;
         }
 		.live-indicator {
 		    	position: relative;
@@ -218,7 +242,7 @@ src="https://www.facebook.com/tr?id=968581565050755&ev=PageView&noscript=1"
         <div class="app-overlay"></div>
         <div id="app-teleport"></div> 
          <!-- Desktop Navbar -->
-        <div id="main-navbar" class="navbar isl-inline-flex is-transparent is-hidden-mobile no-shadow" style="z-index:1000">
+        <div id="main-navbar" class="navbar isl-inline-flex is-transparent is-hidden-mobile no-shadow" style="z-index:1000; position: relative;">
             <div class="container is-fluid">
                 <div class="navbar-brand">
                     <a class="navbar-item">
@@ -340,29 +364,29 @@ src="https://www.facebook.com/tr?id=968581565050755&ev=PageView&noscript=1"
 
 
 <style>
-/* Centraliza tudo na tela */
+/* Ajustes para rolagem suave */
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  display: block;
+  min-height: 100vh;
   background: #000;
   margin: 0;
+  padding: 0;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
 }
 
 /* Moldura do vídeo */
 .video-wrapper {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
   border: 4px solid red;
   border-radius: 15px;
   box-shadow: 0 0 25px red;
   padding: 10px;
-  margin: auto;
+  margin: 20px auto;
   max-width: 420px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 /* Ajusta o tamanho do vídeo e força centralização */
