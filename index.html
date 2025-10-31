@@ -47,23 +47,14 @@
         <link rel="stylesheet" href="css/smooth-scroll.css">
         <link rel="stylesheet" href="css/video-fixes.css">
         <style>
-            html {
-                height: 100% !important;
-                overflow-y: scroll !important;
-                overflow-x: hidden !important;
-                -webkit-overflow-scrolling: touch !important;
-                touch-action: manipulation !important;
+            html, body {
+                height: 100%;
+                width: 100%;
+                overflow-y: scroll;
+                -webkit-overflow-scrolling: touch;
             }
-            body {
-                height: auto !important;
-                min-height: 100% !important;
-                overflow-y: visible !important;
-                overflow-x: hidden !important;
-                touch-action: pan-y !important;
-                -webkit-tap-highlight-color: transparent !important;
-            }
-            * {
-                -webkit-overflow-scrolling: touch !important;
+            .background-custom-size {
+                height: auto;
             }
         </style>
 </script>
@@ -110,41 +101,15 @@ src="https://www.facebook.com/tr?id=968581565050755&ev=PageView&noscript=1"
                 transform: scale(1);
             }
         }
-        /* Correções básicas */
-        html {
-              height: 100% !important;
-              overflow-y: scroll !important;
-              overflow-x: hidden !important;
-              -webkit-overflow-scrolling: touch !important;
-        }
-        
-        body {
-              min-height: 100% !important;
-              height: auto !important;
-              overflow-y: visible !important;
-              overflow-x: hidden !important;
-              margin: 0 !important;
-              padding: 0 !important;
-        }
-
-        /* Ajustes para o banner */
-        .background-custom-size {
-              background-size: cover !important;
-              background-position: center !important;
-              min-height: 300px !important;
-              width: 100% !important;
-        }
-        
-        /* Estrutura básica */
-        .container-inner {
-              overflow: visible !important;
-              height: auto !important;
-        }
-        
-        /* Ajuste para o vídeo */
-        .video-wrapper {
-              position: relative !important;
-              margin-top: 20px !important;
+        .pulsante {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            animation: pulse 1.5s infinite;
         }
 		.live-indicator {
 		    	position: relative;
@@ -304,7 +269,7 @@ src="https://www.facebook.com/tr?id=968581565050755&ev=PageView&noscript=1"
             <input type="hidden" id="SilenciarPerfilId" name="SilenciarPerfilId" value="">
             <div class="scroll-x-hidden-mobile-mosaic">
                 <div class="container">
-                    <div class="background-custom-size bg-img-styles justify-content-end media overflow-hidden row" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9), transparent), url('images/bannergab.png'); min-height: 300px; background-size: cover; background-position: center;">
+                    <div class="background-custom-size bg-img-styles justify-content-end media overflow-hidden row" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9), transparent), url('images/bannergab.png');">
                         <div class="align-self-end mb-n3 pb-1 order-last">
                             <ul class="mr-4 row">
                                 <li>
@@ -393,23 +358,17 @@ body {
 
 /* Moldura do vídeo */
 .video-wrapper {
-  position: relative;
-  display: block;
   border: 4px solid red;
   border-radius: 15px;
   box-shadow: 0 0 25px red;
   padding: 10px;
-  margin: 20px auto;
+  margin: 20px;
   max-width: 420px;
   width: 100%;
-  box-sizing: border-box;
 }
 
-/* Ajusta o tamanho do vídeo e força centralização */
-.video-wrapper vturb-smartplayer,
-.video-wrapper iframe {
-  display: block;
-  margin: 0 auto;
+/* Ajusta o tamanho do vídeo */
+.video-wrapper vturb-smartplayer {
   width: 100%;
   max-width: 400px;
   border-radius: 10px;
