@@ -1,0 +1,85 @@
+/* Reset completo para rolagem suave */
+html {
+    scroll-behavior: smooth !important;
+    -webkit-text-size-adjust: 100%;
+    height: 100% !important;
+    width: 100% !important;
+}
+
+body {
+    min-height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-y: visible !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior-y: none !important;
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    line-height: 1.5;
+    touch-action: pan-y !important;
+}
+
+/* Garantir que elementos não bloqueiem a rolagem */
+#loadProgress,
+.navbar,
+.fixed-top,
+.fixed-bottom,
+[style*="position: fixed"],
+[style*="position:fixed"] {
+    position: absolute !important;
+}
+
+/* Reset para containers */
+.container,
+.container-fluid,
+.container-inner,
+.view-wrapper,
+main,
+section,
+article,
+.row,
+.col,
+[class*="col-"] {
+    max-height: none !important;
+    min-height: 0 !important;
+    height: auto !important;
+    position: relative !important;
+    overflow: visible !important;
+    transform: none !important;
+}
+
+/* Otimizações para mobile */
+@media (max-width: 768px) {
+    body {
+        -webkit-overflow-scrolling: touch !important;
+        touch-action: manipulation !important;
+    }
+    
+    .background-custom-size {
+        background-attachment: scroll !important;
+    }
+}
+
+/* Otimizações de performance */
+* {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+    transform: translateZ(0);
+}
+
+/* Correção para modais e overlays */
+.modal,
+.overlay,
+.popup,
+[class*="modal"],
+[class*="overlay"],
+[class*="popup"] {
+    position: fixed !important;
+    height: auto !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+}

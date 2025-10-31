@@ -1,0 +1,43 @@
+/* Otimizações para vídeo e rolagem */
+vturb-smartplayer {
+    position: relative !important;
+    z-index: 1 !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    display: block !important;
+}
+
+/* Reset para elementos que podem afetar a rolagem */
+.pageloader,
+.infraloader,
+.app-overlay,
+#app-teleport,
+#nav-drop-overlay {
+    position: absolute !important;
+    height: auto !important;
+    width: 100% !important;
+    pointer-events: none !important;
+}
+
+/* Garantir que modais e overlays não bloqueiem a rolagem */
+.modal,
+.modal-background,
+.modal-content {
+    position: absolute !important;
+    height: auto !important;
+}
+
+/* Otimizações de performance */
+* {
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    transform: translateZ(0);
+}
+
+/* Correções para iOS */
+@supports (-webkit-overflow-scrolling: touch) {
+    body {
+        -webkit-overflow-scrolling: touch !important;
+        overflow-y: auto !important;
+    }
+}

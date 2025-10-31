@@ -1,0 +1,46 @@
+* {
+    -webkit-overflow-scrolling: touch;
+}
+
+html, body {
+    width: 100% !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+
+html {
+    overflow-y: scroll !important;
+    height: 100% !important;
+}
+
+body {
+    overflow-y: auto !important;
+    height: auto !important;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+#loadProgress {
+    position: absolute !important;
+}
+
+.container, .container-fluid, .container-inner, .view-wrapper {
+    height: auto !important;
+    min-height: unset !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+}
+
+.background-custom-size {
+    height: auto !important;
+    min-height: unset !important;
+    position: relative !important;
+}
+
+[style*="position: fixed"] {
+    position: absolute !important;
+}

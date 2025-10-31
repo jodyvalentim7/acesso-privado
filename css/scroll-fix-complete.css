@@ -1,0 +1,94 @@
+/* Solução completa para rolagem */
+html {
+    height: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+}
+
+body {
+    min-height: 100vh !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-y: visible !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+/* Reset para todos os elementos que podem afetar a rolagem */
+.container,
+.container-fluid,
+.container-inner,
+.view-wrapper,
+.background-custom-size,
+.row,
+main,
+section,
+article {
+    height: auto !important;
+    min-height: unset !important;
+    max-height: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    position: relative !important;
+}
+
+/* Correção para elementos fixed */
+#loadProgress,
+[style*="position: fixed"],
+.fixed,
+.sticky {
+    position: absolute !important;
+}
+
+/* Correção para vídeos e mídia */
+video,
+iframe,
+embed,
+object {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* Garantir que modais e overlays não quebrem */
+.modal,
+.overlay,
+.popup {
+    position: fixed !important;
+    max-height: 100vh !important;
+    overflow-y: auto !important;
+}
+
+/* Melhorar a experiência de rolagem em dispositivos móveis */
+@media (max-width: 768px) {
+    html, body {
+        -webkit-overflow-scrolling: touch !important;
+        overflow-y: auto !important;
+        overscroll-behavior-y: none !important;
+        position: relative !important;
+    }
+    
+    .container,
+    .container-fluid {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}
+
+/* Garantir que elementos de altura total não bloqueiem a rolagem */
+[style*="height: 100%"],
+[style*="height:100%"],
+[style*="height: 100vh"],
+[style*="height:100vh"] {
+    height: auto !important;
+    min-height: 100vh !important;
+}
