@@ -8,8 +8,8 @@ body {
 :root {
     --see-more: "Ver Mais »";
     --see-less: "Ver Menos «";
-    --show-more: "Mostrar mais";
-    --show-less: "Mostrar menos";
+    --show-more: "mostrar mais";
+    --show-less: "mostrar menos";
 }
 
 html, body, button, input, select, textarea {
